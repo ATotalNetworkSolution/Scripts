@@ -1,0 +1,9 @@
+Instructions:
+
+1: Run the script
+
+2: Enter the name or the ip address of the remote computer.
+
+3: Select 1 to enable it or 2 to disable it.
+
+ I have tested the script on Windows 7 x86/x64. This must be run from an elevated command prompt. Domain Administrator permissions are required.

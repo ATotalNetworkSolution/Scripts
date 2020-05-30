@@ -1,0 +1,27 @@
+If you try to install and the installer hangs searching for updates:
+Stop Windows Update service
+Rename C:\Windows\SoftwareUpdate to C:\Windows\SoftwareUpdate.old
+Start Windows Update service
+Run installer.
+
+After installer finishes:
+Click Start, click Control Panel, and then click Programs.
+
+In the Programs and Features area, click Turn Windows features on or off.
+
+If you are prompted by User Account Control to allow the Windows Features dialog box to open, click Continue.
+
+In the Windows Features dialog box, expand Remote Server Administration Tools.
+
+Select the remote management tools that you want to install, and then click OK.
+
+Configure the Start menu to display the Administration Tools shortcut, if it is not already there.
+
+Right-click Start, and then click Properties.
+
+On the Start Menu tab, click Customize.
+
+In the Customize Start Menu dialog box, scroll down to System Administrative Tools, and then select Display on the All Programs menu and the Start menu. Click OK. 
+
+Shortcuts for snap-ins installed by Remote Server Administration Tools for Windows 7 are added to the Administrative Tools list on the Start menu.
+
