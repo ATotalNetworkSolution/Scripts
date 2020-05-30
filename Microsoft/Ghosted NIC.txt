@@ -1,0 +1,15 @@
+Ghosted NIC 
+
+1. Open a CMD prompt. 
+
+2. Type: set devmgr_show_nonpresent_devices=l 
+
+3. Type: Start DEVMGMT.MSC 
+
+4. Press view and show Hidden Devices. 
+
+5. Expand the Ne~work Adapters tree. 
+
+6. Right-click the ghosted NIC and press uninstall. 
+
+7. Reboot the computer.
