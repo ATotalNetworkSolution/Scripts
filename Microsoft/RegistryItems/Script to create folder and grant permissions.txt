@@ -1,0 +1,37 @@
+REM This script makes a folder named "Special Software" and sets permissions
+REM The purpose of this script is to eliminate having to give a user local administrator rights on their PC
+REM Some software manufacturers state a user must be a local administrator
+REM I have gotten around several pieces of software that state users must be local admins by granting the install folder rights
+REM I use "Everyone" below in all cases except one, where I put "Domain Admins", you can try to substitute "Domain Users" for "Everyone"
+REM =========================================================================================
+REM Ver 1.0 2017-05-16
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+REM Some software installs components in the Users folder, this is an example of that
+
+REM =========================================================================================
+REM This section creates the folder ahead of installation
+c:
+cd \Users\Public
+md "Special Software"
+REM =========================================================================================
+
+REM =========================================================================================
+REM This section gives examples of different install locations
+REM The next line will Grant Modify control with inheritance
+icacls "C:\Users\Public\Special Software" /grant "Domain Users":(OI)(CI)M 
+
+REM Some software installs components in the C:\Program Files(x86) folder, this is an example of that
+REM The next line will Grant Full control with inheritance
+icacls "C:\Program Files (x86)\Special Software\Software Subfolder" /inheritance:r /grant:r "Everyone":(OI)(CI)F
+
+REM Some software installs components in the C:\Program Files(x86) folder, this is an example of that
+REM The next line will Grant Full control with inheritance
+icacls "C:\Program Files\Special Software\Software Subfolder" /inheritance:r /grant:r "Everyone":(OI)(CI)F
+
+REM Some software installs components in the C:\Windows folder, this is an example of that
+REM The next two lines will Grant Full control with inheritance
+icacls "C:\Windows\CCMSetup" /inheritance:r /grant:r "Everyone":(OI)(CI)F
+icacls "C:\Windows\CCMSetup" /inheritance:r /grant:r "Domain Admins":(OI)(CI)F

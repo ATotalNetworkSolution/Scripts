@@ -1,0 +1,6 @@
+REM Imports FDM Registry settings
+md c:\Installs\FDM
+copy "\\CSCB-ALT\Installs\Scripts\FDM\FISLauncher\FISLauncher_FDM64.reg" "C:\Installs\FDM"
+regedit.exe /s "C:\Installs\FDM\FISLauncher_FDM64.reg"
+
+pause

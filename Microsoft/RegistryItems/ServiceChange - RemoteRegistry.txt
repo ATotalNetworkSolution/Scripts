@@ -1,0 +1,8 @@
+rem This will change the startup mode for a service
+rem sc config ServiceName start= auto (options are: <boot|system|auto|delayed-auto|demand|disabled>)
+sc config RemoteRegistry start= auto
+
+rem The next command will start the Service just enabled (if applicable)
+net start RemoteRegistry
+
+pause
