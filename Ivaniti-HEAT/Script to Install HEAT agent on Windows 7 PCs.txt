@@ -1,0 +1,33 @@
+rem Installs HEAT EMSS agent and puts the computer in the "PCs" group
+
+IF EXIST "%PROGRAMFILES(X86)%" (GOTO 64BIT) ELSE (GOTO 32BIT)
+
+:64BIT
+REM the next line installs ONLY the Patch module
+"\\172.16.49.26\c$\Installs\Lumension\Agents\Win7\lmsetupx64.exe" install SERVERIPADDRESS=172.16.49.26 MODULELIST="VULNERABILITYMANAGEMENT" GROUPLIST="PCs"
+
+REM the next line installs ALL modules 
+REM "\\172.16.49.26\c$\Installs\Lumension\Agents\Win7\lmsetupx64.exe" install SERVERIPADDRESS=172.16.49.26 MODULELIST="VULNERABILITYMANAGEMENT|DEVICECONTROL|ApplicationControl|AntiVirus" GROUPLIST="PCs"
+echo.
+echo.
+echo     Installed HEAT EMSS 64-bit
+
+REM pause
+GOTO END
+
+
+:32BIT
+REM the next line installs ONLY the Patch module
+"\\172.16.49.26\c$\Installs\Lumension\Agents\Win7\lmsetup.exe" install SERVERIPADDRESS=172.16.49.26 MODULELIST="VULNERABILITYMANAGEMENT" GROUPLIST="PCs"
+
+REM the next line installs ALL modules 
+REM "\\172.16.49.26\c$\Installs\Lumension\Agents\Win7\lmsetup.exe" install SERVERIPADDRESS=172.16.49.26 MODULELIST="VULNERABILITYMANAGEMENT|DEVICECONTROL|ApplicationControl|AntiVirus" GROUPLIST="PCs"
+
+echo.
+echo.
+echo     Installed HEAT EMSS 32-bit
+
+REM pause
+GOTO END
+
+:END
