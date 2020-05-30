@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "Powershell 5",
+  "description": "Installs Powershell 5 on Windows 7 / Server 2008",
+  "iconUri": "",
+  "targetOsType": "Windows",
+  "parameters": {},
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy ByPass \"& ./Powershell.ps1\"')]"
+  }
+}
