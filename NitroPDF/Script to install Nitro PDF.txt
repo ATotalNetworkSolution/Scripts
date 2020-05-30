@@ -1,0 +1,15 @@
+rem This script Installs Nitro 10 PDF Creator
+rem net stop sbamsvc
+
+rem The following line is an example of using a TRANSFORM file
+REM msiexec /i \\server\path\nitro_pro10_x86.msi /q TRANSFORMS=\\server\path\nitro_pro10_x86.mst
+rem The following line is the install using a TRANSFORM file
+REM msiexec /i \\cscb-backup1\Support$\Installs\PDF\Nitro10\nitro_pro10_x64_NLS.msi /q TRANSFORMS=\\cscb-backup1\Support$\Installs\PDF\Nitro10\nitro_pro10_x64_NLS.mst
+
+rem pause
+
+rem The following line is an example of using a MSI method incorporating including the serial number
+msiexec /i \\cscb-backup1\Support$\Installs\PDF\Nitro10\nitro_pro10_x64.msi /qb NPSERIAL=234600144486891497
+
+rem pause
+rem net start sbamsvc
