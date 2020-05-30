@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "7Zip 18.01 64-bit",
+  "description": "Installs 7Zip",
+  "iconUri": "",
+  "targetOsType": "Windows",
+  "parameters": {},
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy ByPass \"& ./7zip.ps1\"')]"
+  }
+}
+

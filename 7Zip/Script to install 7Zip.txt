@@ -1,0 +1,14 @@
+REM This script installs 7Zip
+REM Ver 1.1 2020-02-04
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, by credit may not be removed
+REM Commands to install both 64-bit and 32-bit are below. 
+REM 64-bit is most common, if you wish to install 32-bit, remove the REM in fron of the line in front of "msiexec" in the 32-bit section
+REM put REM in front of msiexec in the 64-bit section
+
+rem Installs 7Zip 64bit
+msiexec /i \\Servername\Installs\7Zip\7z1900-x64.msi /qn
+rem pause
+
+rem Installs 7Zip 32bit
+REM msiexec /i \\Servername\Installs\7Zip\7z1900.msi /qn
