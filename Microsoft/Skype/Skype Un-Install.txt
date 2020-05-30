@@ -1,0 +1,47 @@
+REM This script installs Skype Ver 7.39.0.102
+REM =========================================================================================
+REM Ver 1.0 2017-09-18
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+REM This section un-installs older versions first
+TASKKILL /F /IM Skype.exe
+
+REM Ver 7.0.102
+MsiExec.exe /X{24991BA0-F0EE-44AD-9CC8-5EC50AECF6B7} /qn /norestart
+
+REM ver 7.13.101
+MsiExec.exe /X{6A0549A9-1B96-498C-ACBC-3943001FEB19} /qn /norestart
+
+REM ver 7.33.104
+MsiExec.exe /X{3B7E914A-93D5-4A29-92BB-AF8C3F66C431} /qn /norestart
+
+REM ver 7.33.105
+REM See line Above
+
+REM Ver 7.34.103
+REM See line Above
+
+REM Ver 7.35.101
+REM See line Above
+
+REM Ver 7.35.102
+REM See line Above
+
+REM Ver 7.35.103
+REM See line Above
+
+REM Ver 7.36.101
+REM See line Above
+
+REM Ver 7.38.101
+REM See line Above
+
+REM Ver 7.39.102
+REM See line Above
+
+REM Ver 7.40.103
+REM See line Above
+
+REM pause

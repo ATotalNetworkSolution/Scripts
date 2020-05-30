@@ -1,0 +1,11 @@
+REM This script installs Skype, ver 7.39.0.102
+REM =========================================================================================
+REM Ver 1.0 20117-08-18
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+REM This section installs 
+\\ServerName\ShareName\Folder\Subfolder\SkypeSetup_7-39-0.102.exe /VerySilent /SP- /NoCancel /NoRestart /SuppressMsgBoxes /NoLaunch
+
+REM The next line will pause the script to check the status
+REM pause
