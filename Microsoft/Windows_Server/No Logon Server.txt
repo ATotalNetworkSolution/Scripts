@@ -1,0 +1,11 @@
+REM This script will resolve the "No logon server" in an RDS farm
+REM =========================================================================================
+REM Ver 1.0 2017-05-16
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+Log on as a local admin to the PC. Open a Command Prompt and run the following:
+
+runas /profile /user:**domain**\**username** gpupdate
+Obviously change **domain** to whatever domain it is you're logging on to and **username** would be the domain name provided to the user.

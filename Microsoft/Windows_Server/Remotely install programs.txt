@@ -1,0 +1,22 @@
+REM This is not really a script but examples of using PSExec to install software remotely
+REM =========================================================================================
+REM Ver 1.0 2017-05-16
+REM Some information from http://kunaludapi.blogspot.in/2015/08/multiple-ways-to-install-software_23.html
+REM Modified by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+
+PSEXEC is a command line tool single exe file, and need to download from microsoft website
+Next create 2 files on the local drive from where you will be executing psexec, I have created under c:\temp, one is computerslist.txt file and second is installationscript.bat. Computerlist.txt contains all the computers list. (here I want to show you installation of application on multiple PC instead of single one). And the second batch has script to map software share drive and run setup.exe file on the mapped drive. If you use batch file you wont get Access denied or any other busy error.
+
+Batch file commands are
+REM In the next line change the path for your enviroment and change DomainName, UserName and Password123 to the user you want to use
+net use s: \\ServerName\ShareName\Folder\Subfolder /user:DomainName\UserName Password123
+* Username and password is mandatory.
+
+REM *Running setup.exe from mapped drive, Use the switches supported by your software
+S:\setup.exe /S /v /qn REBOOT=R
+
+Open Command prompt (cmd). And run below command.
+psexec.exe @c:\temp\computerslist.txt -c c:\temp\installationscript.bat

@@ -1,0 +1,9 @@
+REM This is not really a script, but gives a command that will force the computer to restart
+REM =========================================================================================
+REM Ver 1.0 2017-05-16
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+REM In the next line "60" indicates number of seconds to wait to restart, change to the desired number of seconds
+shutdown -r -f -t 60

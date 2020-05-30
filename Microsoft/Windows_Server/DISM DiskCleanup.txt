@@ -1,0 +1,48 @@
+https://www.saotn.org/windows-server-2012-r2-disk-cleanup-dism/
+
+The disk cleanup utility is not installed by default on Windows Server 2012, so how do you perform a disk cleanup in Windows Server 2012 R2? Here is how to clean up the WinSxs folder on Windows Server 2012 R2, to reclaim disk space. Delete superseded updates and unused system files to gain Gigabytes of extra disk space with dism.exe‘s disk cleanup options, learn how to move the Windows Server SoftwareDistribution folder and user’s Documents folder.
+
+WinSxs Cleanup in Windows Server 2012 (R2) – Using DISM and PowerShell
+Over time, as your Windows Server runs longer, more and more disk space is eaten. Simply gone! Investigating the disk usage leaves you clueless; there are no large log files, crash dumps, or there is no software to be removed. Where did that space go?
+The answer: Windows Updates, Service Pack, and hotfix installations.
+On Windows Server, the Windows component store (C:\Windows\WinSxS) contains all the files that are required for a Windows installation. And, any updates to those files are also held within the component store as the updates are installed (source: KB 2795190 – and do read Manage the Component Store). The WinSxS folder will become large…
+Let’s clean up WinSxS!
+
+Regain used disk space with DISM 
+Deployment Image Servicing and Management (DISM) is a command-line tool that allows you to install, uninstall, configure, and update Windows features, packages, drivers, and international settings. The /Cleanup-Image parameter of dism.exe provides advanced users more options to further reduce the size of the WinSxS folder.
+The Dism.exe /online /Cleanup-Image has a few extra parameters (or switches):
+/AnalyzeComponentStore
+/StartComponentCleanup
+/ResetBase with /StartComponentCleanup
+/SPSuperseded
+Throughout this article, I assume you’ll read help options, just add /?, like: dism.exe /online /Cleanup-Image /?.
+Analyze WinSxS folder (Component Store) with /AnalyzeComponentStore
+Use the /AnalyzeComponentStore to analyze the size of the Component Store (WinSxS folder) in Windows. The AnalyzeComponentStore option is available in Windows 8.1 Windows Server 2012 R2.
+"dism.exe /online /Cleanup-Image /AnalyzeComponentStore"
+
+/StartComponentCleanup parameter
+Dism.exe removes superseded and unused system files from a system with the /StartComponentCleanup parameter.
+"dism.exe /online /Cleanup-Image /StartComponentCleanup"
+
+The StartComponentCleanup task can also be started from the command line:
+"schtasks.exe /Run /TN "\Microsoft\Windows\Servicing\StartComponentCleanup""
+The /StartComponentCleanup parameter is supported on Windows 8 and Windows Server 2012.
+/ResetBase switch with /StartComponentCleanup parameter
+Using the /ResetBase switch with the /StartComponentCleanup parameter of dism.exe, all superseded versions of every component in the component store is removed.
+"dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase"
+
+All existing service packs and updates cannot be uninstalled after this command is completed. This will not block the uninstallation of future service packs or updates.
+The /ResetBase parameter is supported on Windows 8.1 and Windows Server 2012 R2.
+/SPSuperseded parameter
+The /SPSuperseded parameter removes any backup components needed for de-installation of a service pack. The service pack cannot be uninstalled after this command is completed.
+"dism.exe /online /Cleanup-Image /SPSuperseded"
+
+The Service Pack cannot be uninstalled after this command is completed.
+The /SPSuperseded parameter is supported on Windows 7 or Windows Server 2008 R2 Service Pack 1, 2012, 2012 R2.
+The /AnalyzeComponentStore option is available in Windows 8.1 and Windows Server 2012 R2. Use this to analyze the size of the Component Store (WinSxS folder) in Windows.
+Disk Cleanup Tool on Windows Server 2012 & R2
+The Disk Cleanup Tool is available in Windows Server 2012, if you install the Desktop Experience-feature. If you don’t want to install the Desktop Experience feature, you can simply copy cleanmgr.exe and cleanmgr.exe.mui to C:\Windows\system32 and C:\Windows\system32\en-Us from a Windows 2008 R2 server. The Applied Innovations post explains where to find the files in the WinSxS folder on Windows Server 2008 R2.
+This may not work on all versions of Windows Server 2012 (R2).
+Disk Cleanup Wizard addon on Windows Server 2008 R2
+Microsoft KB2852386 adds a Disk Cleanup option on Windows Server 2008 R2, similar to the Windows 7 update. I’ve tested this on Windows Server 2012. It may not clean up everything, but at least a lot.
+
