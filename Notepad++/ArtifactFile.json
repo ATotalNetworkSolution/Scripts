@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "Notepad++ 7.2.2",
+  "description": "Installs Notepadd++",
+  "iconUri": "",
+  "targetOsType": "Windows",
+  "parameters": {},
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy ByPass \"& ./notepad.ps1\"')]"
+  }
+}
+
