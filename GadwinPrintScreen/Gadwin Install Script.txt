@@ -1,0 +1,19 @@
+REM Gadwin unattended install
+REM =========================================================================================
+REM Ver 1.0 2017-09-14
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+REM The next line installs Gadwin Print Screen
+PrintScreen47_Setup.exe /quiet /qn /norestart /log "%temp%\install_log_printscreen47.log"
+REM pause
+
+REM This section will incorporate predefined settings via Registry export
+REM Configure Gadwin Print screen the way you desire
+REM Configuration such as HotKey, Capture Area, etc.
+REM You will need to export the Gadwin section of the registry as it is not captured by the install settings, but configuration afterward
+copy \\ServerName\ShareName\Folder\Subfolder\GadwinPrintScreen.reg C:\Windows\Temp\
+REM pause
+regedit.exe /s "C:\Windows\Temp\GadwinPrintScreen.reg"
+REM pause
