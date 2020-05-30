@@ -1,0 +1,1 @@
+Copy Workspace ID from Azure Log Analytics

@@ -1,0 +1,18 @@
+<#      
+==============================================================================================
+This script gets a list of programs installed on Remote server
+Ver 1.1 2017-05-16 Included option to output list to text file
+Ver 1.0 2017-05-15 Script to get programs from remote computer
+
+
+Written by Randy Dover, A-Total Network Solution, randy.dover@atotalnetworksolution.com
+Script may be modified, by credit may not be removed
+
+.NOTATIONS 
+==============================================================================================    
+#>
+
+Get-WmiObject -Class Win32_Product -ComputerName NameofServer | Select Name | Sort-Object name 
+
+To save inventory as text file:
+Get-WmiObject -Class Win32_Product -ComputerName NameofServer | Select Name | Sort-Object name > path\servername_programs.txt

@@ -1,0 +1,27 @@
+Three ways to see the users currently logged on to the remote machine.
+REM =========================================================================================
+REM Ver 1.0 2016-05-16
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+Remote Desktop Services Manager:
+The Remote Desktop Services Manager is part of the Remote Server Administration Tools (RSAT) suite of tools, so you’ll need to install RSAT before you can use the Remote Desktop Manager. Remote Desktop Services:
+Remote Desktop Services Manager
+Once the Remote Desktop Services Manager MMC is up and running, simply right click on the “Remote Desktop Services Manager” root node in the left pane tree view:
+RDP Session Remote Viewer
+Then when prompted, enter the hostname of the remote computer you want to view. After the MMC connects to the remote computer, you’ll see a list of users logged on to the machine and which session they’re each using:
+RDP Remote Sessions
+
+PsLoggedOn - PSTools
+As with other SysInternals tools, you’ll need to download psloggedon.exe and place it somewhere accessible on your local computer (not the remote computer), for example, in C:\PsTools.
+Then, open a command prompt on your local machine and from any directory execute: C:\PsTools\psloggedon.exe \\server-a
+PsLoggedOn
+This of course assumes you put psloggedon.exe in C:\PsTools on your local machine, and replace “server-a” with the hostname of the computer you want to remotely view who is logged on.
+
+Query
+There’s the built-in Windows command, “query”, located at %SystemRoot%\system32\query.exe.
+Just open a command prompt and execute: query user /server:server-a
+query user
+As usual, replace “server-a” with the hostname of the computer you want to remotely view who is logged on.
+For more information on the query command see http://support.microsoft.com/kb/186592

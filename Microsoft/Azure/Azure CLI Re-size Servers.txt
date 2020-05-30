@@ -1,0 +1,8 @@
+# This script gives an example of how to re-size an Azure VM from Azure CLI
+# Change the ResourceGroupName to match the ResourceGroup the VM is in
+# Change the VMName to match the actual name of the VM
+# Change the Size (listed as Standard_DS1_v2) to desired size
+# Copy the following line(s) into CLI Powershell
+
+az vm resize --resource-group ResourceGroupName --name VMName1 Standard_DS1_v2
+az vm resize --resource-group ResourceGroupName --name VMName2 Standard_DS1_v2

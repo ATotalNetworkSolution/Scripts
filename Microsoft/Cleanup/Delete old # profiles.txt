@@ -1,0 +1,14 @@
+REM This is not a script but gives instruction on how to remove User Profiles older than a certain amount of time.
+REM =========================================================================================
+REM Ver 1.0 2017-09-25
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Credit for some information: http://www.thewindowsclub.com/delete-user-profiles-older-than-a-specified-number-of-days
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+
+To configure this setting, type gpedit.msc in start search and hit Enter to open the Group Policy Editor. Next under Computer Configuration, expand Administrative Templates > System > User Profiles.
+
+Now in the right hand side details pane, double-click on  navigate to Delete user profiles older than a specified number of days on system restart to open its configuration box.
+ 
+Here, if you enable this policy setting, the User Profile Service will automatically delete on the next system restart all user profiles on the computer that have not been used within the specified number of days.

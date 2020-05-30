@@ -1,0 +1,14 @@
+REM This script will identify PCs that haven't checked in with the Domain Controller in specific time
+REM This script should be run on the Domain Controller
+REM =========================================================================================
+REM Ver 1.0 2017-05-16
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+REM The following line has inactive days set to "31" change it to the desired number of days
+dsquery user -inactive 31
+
+
+REM The next line will pause the script to check the status
+pause

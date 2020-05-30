@@ -1,0 +1,25 @@
+<#CODE TO START A VM:
+This Runbook starts specific Virtual Machines (identified by VirtualMachineName) named below and contained in the Subscription (identied by SubscriptionName) and ResourceGroups (identified by ResourceGroupName) named below
+This code can be used to create an Azure Automation Runbook or can be run from PowerShell
+If run from PowerShell, use the Connect-AzureRmAccount cmdlet at the beginning, it is commented out below
+Written by Randy Dover, Airnet Group, Inc. support@airnetgroup.com
+Script may be modified, by credit may not be removed
+#>
+
+Start of code ===================================================================
+#Connect-AzureRmAccount
+
+# Authenticate with your Automation Account
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID 
+Get-AzureRmSubscription
+
+Select-AzureRmSubscription -SubscriptionName "SubscriptionName"
+
+Start-AzureRmVM -Name VMName1 -ResourceGroupName ResourceGroupName
+Start-AzureRmVM -Name VMName2 -ResourceGroupName ResourceGroupName
+
+# End of code ===================================================================

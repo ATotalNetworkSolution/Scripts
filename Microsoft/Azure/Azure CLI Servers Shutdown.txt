@@ -1,0 +1,11 @@
+# This script gives an example of how to deallocate an Azure VM from Azure CLI
+# NOTE there is difference in STOP and DEALLOCATE. 
+#       Stop turns the OS off, but still incurs Azure compute + storage cost. Deallocate turns the Azure VM off, only cost is storage
+# Change the ResourceGroupName to match the ResourceGroup the VM is in
+# Change the VMName to match the actual name of the VM
+# The "--no-wait" cmdlet will cause the script to move to the next line of the code without waiting for the line to finish
+#       Without the "--no-wait" cmdlet the script would wait until the VM reports that it is completely down before shutting the next VM
+# Copy the following line(s) into CLI Powershell
+
+az vm deallocate --name VMName1 --no-wait --resource-group ResourceGroupName
+az vm deallocate --name VMName2 --no-wait --resource-group ResourceGroupName

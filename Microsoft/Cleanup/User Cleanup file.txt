@@ -1,0 +1,100 @@
+REM This script cleans up User Profiles
+REM =========================================================================================
+REM Ver 1.0 2017-11-29
+REM Credit come information came from https://community.spiceworks.com/scripts/show/782-user-cleanup
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+@echo off
+if %os%==Windows_NT goto WINNT
+goto NOCON
+
+:WINNT
+echo .Using a Windows NT based system
+echo ..%computername%
+
+echo Deleting Temporary Internet Files
+del /q /f /s "%USERPROFILE%\AppData\Local\Microsoft\Windows\Temporary Internet Files\*.*"
+echo deleted!
+
+echo Deleting Downloads Folder Files
+del /q /f /s "%USERPROFILE%\Downloads\*.*"
+echo deleted!
+
+echo Deleting Cookies
+del /q /f /s "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Cookies\*.*"
+del /q /f /s "%USERPROFILE%\AppData\LocalLow\Microsoft\Internet Explorer\DOMStore\*.*"
+echo deleted!
+
+echo Deleting History
+del /q /f /s "%USERPROFILE%\AppData\Local\Microsoft\Windows\History\*.*"
+del /q /f /s "%USERPROFILE%\AppData\Local\Microsoft\Internet Explorer\Recovery\Active\*.*"
+del /q /f /s "%USERPROFILE%\AppData\Local\Microsoft\Internet Explorer\Recovery\Last Active\*.*"
+echo deleted!
+
+echo Deleting Windows Internet Explorer Dat Files
+del /q /f /s "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\PrivacIE\*.*"
+del /q /f /s "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\IECompatCache\*.*"
+del /q /f /s "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\IETldCache\*.*"
+echo deleted!
+
+echo Deleting Windows Error Reporting Files
+del /q /f /s "%USERPROFILE%\AppData\Local\Microsoft\Windows\WER\ReportArchive\*.*"
+echo deleted!
+
+echo Deleting Flash Player Temp Files
+del /q /f /s "%USERPROFILE%\AppData\Roaming\Macromedia\Flash Player\*.*"
+echo deleted!
+
+echo Deleting Remote Desktop Cache
+del /q /f /s "%USERPROFILE%\AppData\Local\Microsoft\Terminal Server Client\Cache\*.*"
+echo deleted!
+
+echo Deleting Profile Temp Files
+del /q /f /s "%USERPROFILE%\AppData\Local\Temp\*.*"
+echo deleted!
+
+echo Delete misc Files in Profile
+del /q /f /s "%USERPROFILE%\webct_upload_applet.properties"
+del /q /f /s "%USERPROFILE%\g2mdlhlpx.exe"
+del /q /f /s "%USERPROFILE%\fred"
+rmdir /s /q "%USERPROFILE%\temp"
+rmdir /s /q "%USERPROFILE%\WebEx"
+rmdir /s /q "%USERPROFILE%\.gimp-2.4"
+rmdir /s /q "%USERPROFILE%\.realobjects"
+rmdir /s /q "%USERPROFILE%\.thumbnails"
+rmdir /s /q "%USERPROFILE%\Bluetooth Software"
+rmdir /s /q "%USERPROFILE%\Office Genuine Advantage"
+echo deleted!
+
+echo Deleting FireFox Cache
+
+pushd "%USERPROFILE%\AppData\Local\Mozilla\Firefox\Profiles\*.default\"
+del /q /f /s "Cache\*.*"
+popd
+
+echo deleted!
+
+echo Deleting User Profile Adobe Temp Files
+del /q /f /s "%USERPROFILE%\AppData\LocalLow\Adobe\Acrobat\9.0\Search\*.*"
+del /q /f /s "%USERPROFILE%\AppData\LocalLow\Adobe\Common\Media Cache Files\*.*"
+del /q /f /s "%USERPROFILE%\AppData\LocalLow\Adobe\Common\Media Cache\*.*"
+echo deleted!
+
+echo Deleting User Office Recent Files
+del /q /f /s "%USERPROFILE%\AppData\Roaming\Microsoft\Office\Recent\*.*"
+echo deleted!
+
+echo Deleting User Office TMP Files
+del /q /f /s "%USERPROFILE%\AppData\Roaming\Microsoft\Office\*.tmp"
+echo deleted!
+
+goto END
+
+:NOCON
+echo Error...Invalid Operating System...
+echo Error...No actions were made...
+goto END
+
+:END

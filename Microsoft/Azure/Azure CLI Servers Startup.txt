@@ -1,0 +1,9 @@
+# This script gives an example of how to start an Azure VM from Azure CLI
+# Change the ResourceGroupName to match the ResourceGroup the VM is in
+# Change the VMName to match the actual name of the VM
+# The "--no-wait" cmdlet will cause the script to move to the next line of the code without waiting for the line to finish
+#       Without the "--no-wait" cmdlet the script would wait until the VM reports that it is up before starting the next VM
+# Copy the following line(s) into CLI Powershell
+
+az vm start --name VMName1 --no-wait --resource-group ResourceGroupName
+az vm start --name VMName2 --no-wait --resource-group ResourceGroupName

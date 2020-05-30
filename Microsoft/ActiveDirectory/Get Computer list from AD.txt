@@ -1,0 +1,26 @@
+REM This is not really a script but examples of how to get a computer list from Active Directory
+REM =========================================================================================
+REM Ver 1.0 YYYY-MM-DD
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+Get-ADComputer -Filter * -Property * | Select-Object Name,OperatingSystem,OperatingSystemServicePack,LastLogonDate | Export-CSV C:\Temp\All_AD_PCs.csv -NoTypeInformation -Encoding UTF8
+
+Option 2:
+Get-WmiObject Win32_Bios -ComputerName (Get-Content c:\pstest\computerlist.txt) | Select-Object __SERVER, SerialNumber
+
+Option 3:
+# Requires ActiveRoles CmdLets from Quest Software (They're free and awesome) - http://www.quest.com/powershell/activeroles-server.aspx
+Get-QADComputer -searchroot "OU=MyBusiness,dc=mmcontainer,dc=com" -SizeLimit 0 |
+ForEach-Object {
+  $hostname = $_.name
+  $serialnumber = (Get-WMIObject Win32_BIOS -computer $hostname -ErrorAction SilentlyContinue).SerialNumber
+  if (-not $serialnumber) {
+    Add-Content C:\logfiles\offlinehosts.txt "$hostname is in offline"
+  }
+  else {
+  Write-Host "$hostname,$serialnumber" # output to screen 
+  Add-Content C:\logfiles\serialnumberlist.txt "$hostname,$serialnumber"
+  }
+}

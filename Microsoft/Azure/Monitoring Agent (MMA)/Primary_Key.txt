@@ -1,0 +1,1 @@
+Copy Primary Key from Azure Log Analytics

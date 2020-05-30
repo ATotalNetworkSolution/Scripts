@@ -1,0 +1,30 @@
+REM =========================================================================================
+REM Ver 1.0 2017-05-22
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+echo on
+DEL "B:\SQL Backups\ASCTrac\*.BA2"
+REN "B:\SQL Backups\ASCTrac\*.BA1" *.BA2
+REN "B:\SQL Backups\ASCTrac\*.BAK" *.BA1
+
+DEL "B:\SQL Backups\ASCTracInterface\*.BA2"
+REN "B:\SQL Backups\ASCTracInterface\*.BA1" *.BA2
+REN "B:\SQL Backups\ASCTracInterface\*.BAK" *.BA1
+
+DEL "B:\SQL Backups\ASCTracTestMRP\*.BA2"
+REN "B:\SQL Backups\ASCTracTestMRP\*.BA1" *.BA2
+REN "B:\SQL Backups\ASCTracTestMRP\*.BAK" *.BA1
+
+DEL "B:\SQL Backups\Master\*.BA2"
+REN "B:\SQL Backups\Master\*.BA1" *.BA2
+REN "B:\SQL Backups\Master\*.BAK" *.BA1
+
+DEL "B:\SQL Backups\Model\*.BA2"
+REN "B:\SQL Backups\Model\*.BA1" *.BA2
+REN "B:\SQL Backups\Model\*.BAK" *.BA1
+
+DEL "B:\SQL Backups\MSDB\*.BA2"
+REN "B:\SQL Backups\MSDB\*.BA1" *.BA2
+REN "B:\SQL Backups\MSDB\*.BAK" *.BA1

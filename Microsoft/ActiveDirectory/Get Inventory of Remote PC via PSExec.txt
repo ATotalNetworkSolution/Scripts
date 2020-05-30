@@ -1,0 +1,10 @@
+REM This scrrip will user PSExec to get the software installed on remote computer
+REM =========================================================================================
+REM Ver 1.0 2016-05-17
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+REM You must have PSExec on the machine you are running this script from
+REM change "remote-machine" to the machine name you want the software inventory from
+psexec \remote-machine cmd /c “wmic product get name”

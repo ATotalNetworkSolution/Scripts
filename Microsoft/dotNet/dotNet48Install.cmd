@@ -1,0 +1,1 @@
+C:\Installs\dotNET_Framework_4_8\ndp48-x86-x64-allos-enu.exe /q /norestart
