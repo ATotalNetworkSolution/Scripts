@@ -1,0 +1,10 @@
+REM Installs OCS Inventory via Script
+net stop "ocs inventory"
+net stop "ocs inventory service"
+del "C:\Program Files\OCS Inventory Agent\OCSService.exe"
+del "C:\Program Files (x86)\OCS Inventory Agent\OCSService.exe"
+C:
+cd \Installs\OCS\OCS-Windows-Agent
+C:\Installs\OCS\OCS-Windows-Agent\OCS-NG-Windows-Agent-Setup.exe /s /nosplash /upgrade /no_systray /now /server=http://172.16.49.27/ocsinventory
+
+REM pause
