@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "Adobe Reader DC 2017",
+  "description": "Installs Adobe Reader DC 2017",
+  "iconUri": "",
+  "targetOsType": "Windows",
+  "parameters": {
+  "UserNameParam": {
+    "type": "string",
+    "displayName": "Admin name.",
+    "description": "Azure AD tenant global administrator name."
+  },
+  "PasswordParam": {
+    "type": "securestring",
+    "displayName": "Admin password.",
+    "description": "Domain administrator password."
+  }
+},
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy ByPass \"& ./AdobeReaderDC.ps1 -User ''', parameters('UserNameParam'),''' -Password ''', parameters('PasswordParam'), '''')]"
+  }
+}

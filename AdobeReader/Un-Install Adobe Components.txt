@@ -1,0 +1,4 @@
+Adobe Refresh Manager
+1.8.0
+64-bit
+MsiExec.exe /I{AC76BA86-0804-1033-1959-001824225037}
