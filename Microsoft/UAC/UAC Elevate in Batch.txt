@@ -1,0 +1,43 @@
+1. Create a file as follows called "UAC_Level-1.reg" (without the quotes):
+Windows Registry Editor Version 5.00
+; Created by: Shawn Brink
+; http://www.sevenforums.com
+; Tutorial: http://www.sevenforums.com/tutorials...-settings.html
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"ConsentPromptBehaviorAdmin"=dword:00000002
+"EnableLUA"=dword:00000001
+"PromptOnSecureDesktop"=dword:00000001
+
+2. Create a file as follows called "UAC_Level-2_Default.reg" (without the quotes):
+Windows Registry Editor Version 5.00
+; Created by: Shawn Brink
+; http://www.sevenforums.com
+; Tutorial: http://www.sevenforums.com/tutorials...-settings.html
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"ConsentPromptBehaviorAdmin"=dword:00000005
+"EnableLUA"=dword:00000001
+"PromptOnSecureDesktop"=dword:00000001
+
+3. Create a file as follows called "UAC_Level-3_No_Dim.reg" (without the quotes):
+Windows Registry Editor Version 5.00
+; Created by: Shawn Brink
+; http://www.sevenforums.com
+; Tutorial: http://www.sevenforums.com/tutorials...-settings.html
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"ConsentPromptBehaviorAdmin"=dword:00000005
+"EnableLUA"=dword:00000001
+"PromptOnSecureDesktop"=dword:00000000
+
+4. Create a file as follows called "UAC_Level-4_Disable.reg" (without the quotes):
+Windows Registry Editor Version 5.00
+; Created by: Shawn Brink
+; http://www.sevenforums.com
+; Tutorial: http://www.sevenforums.com/tutorials...-settings.html
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"ConsentPromptBehaviorAdmin"=dword:00000000
+"EnableLUA"=dword:00000000
+"PromptOnSecureDesktop"=dword:00000000
+
+Now, in your BAT file add a CD command to take you to the directory where the 4 files above are stored. Depending on what level UAC you want, simply add this line (for example) to your BAT file:
+
+Start regedit.exe /s UAC_Level-2_Default.reg
