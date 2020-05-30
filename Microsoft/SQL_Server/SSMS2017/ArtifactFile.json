@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "SQL Server Management Studion (SSMS) 2017",
+  "description": "SQL Server Management Studion (SSMS) 2017",
+  "iconUri": "",
+  "targetOsType": "Windows",
+  "parameters": {},
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy ByPass \"& ./SQL_ServerManagementStudio2017.ps1\"')]"
+  }
+}
+
