@@ -1,0 +1,9 @@
+rem This script installs Office365 Business Professional
+REM =========================================================================================
+REM Ver 1.0 2018-01-03
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM =========================================================================================
+
+echo.     Installing Office365 Business Professional
+"\\ServerName\ShareName\Folder\OfficeDeploymentTool\setup.exe" /configure "\\ServerName\ShareName\Folder\OfficeDeploymentTool\installconfig.xml"
