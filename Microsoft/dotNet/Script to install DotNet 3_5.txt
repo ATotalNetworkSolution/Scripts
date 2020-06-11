@@ -1,0 +1,12 @@
+REM This script Installs .NET 3.5
+REM Ver 1.1 2019-01-04
+REM Written by Randy Dover, A-Total Network Solution, randy.dover @ atotalnetworksolution.com
+REM Script may be modified, but credit may not be removed
+REM Commands to install both 64-bit and 32-bit are below. 
+REM 64-bit is most common, if you wish to install 32-bit, remove the REM in fron of the line in front of "msiexec" in the 32-bit section
+REM put REM in front of msiexec in the 64-bit section
+
+REM The following command does not restart the computer. The computer must be restarted before it recognizes .Net was installed
+"C:\Installs\dotNet\dotnetfx35" /passive /norestart
+
+rem pause
